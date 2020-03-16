@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace PhoneApps.Controllers
+namespace PhoneApp.Controllers
 {
   public class HomeController : Controller
   {

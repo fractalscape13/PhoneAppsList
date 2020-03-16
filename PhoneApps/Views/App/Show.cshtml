@@ -4,15 +4,15 @@
 
 @using PhoneApps.Models;
 
-<h3>Here are all the applicaions in this category:</h3>
+<h3>Here are all the applications in this category:</h3>
 
-<ol>
-@foreach (Item item in @Model["apps"])
-{
-  <li><a href='/uses/@Model["use"].Id/apps/@app.Id'>@item.Description</a></li>
-}
-</ol>
 
-<p><a href='/uses/@Model["use"].Id/apps/new'>Add a new item</a></p>
-<p><a href='/uses'>Return to category list</a></p>
+  <p>Name: <a href='/app/@Model.Id'>@Model.Name</a></p>
+  <p>Developer: <a href='/app/@Model.Id'>@Model.Developer</a></p>
+  <p>Category: <a href='/app/@Model.Id'>@Model.Category</a></p>
+  <p>Release Date: <a href='/app/@Model.Id'>@Model.ReleaseDate</a></p>
+  
+
+<p><a href='/app/new'>Add a new item</a></p>
+<p><a href='/app'>Return to category list</a></p>
 <p><a href='/'>Return to Main Page</a></p>
