@@ -19,5 +19,12 @@ namespace PhoneApps.Models
       ReleaseDate = releaseDate;
       Id;
     }
+
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+    }
   }
 }
