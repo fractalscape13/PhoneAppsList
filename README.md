@@ -1,6 +1,6 @@
-# _{PhoneApps}_
+# _PhoneApps_
 
-#### _{Brief description of application}, {3/16/2020}_
+#### _{Brief description of application}, 3/16/2020_
 
 #### By _**JW & ZS**_
 
