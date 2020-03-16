@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using PhoneApps.Models;
 using System.Collections.Generic;
 
-namespace PhoneApp.Controllers
+namespace PhoneApps.Controllers
 {
   public class AppController : Controller
   {
@@ -19,7 +19,7 @@ namespace PhoneApp.Controllers
       return View();
     }
 
-    [HttpPost("/app/{appId}/new")]
+    [HttpPost("/app/create/new")]
     public ActionResult Create(string name, string developer, string category, string releaseDate)
     {
       App newApp = new App(name, developer, category, releaseDate);
