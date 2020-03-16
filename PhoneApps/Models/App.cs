@@ -17,8 +17,53 @@ namespace PhoneApps.Models
       Developer = developer;
       Category = category;
       ReleaseDate = releaseDate;
-      Id;
     }
+
+    public App (string name, string developer, string category, string releaseDate, int id)
+    {
+      Name = name;
+      Developer = developer;
+      Category = category;
+      ReleaseDate = releaseDate;
+      Id = id;
+    }
+
+    public static App Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM 'apps' WHERE id = @thisId,";
+
+      MySqlParameter thisId = new MySqlParameter();
+      thisId.ParameterName = "@thisId";
+      thisId.Value = id;
+      cmd.Parameters.Add(thisId);
+
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int appsId = 0;
+      string appsName = "";
+      string appsDeveloper = "";
+      string appsCategory = "";
+      string appsReleaseDate = "";
+      while(rdr.Read())
+      {
+        appsId = rdr.GetInt32(0);
+        appsName = rdr.GetString(1);
+        appsDeveloper = rdr.GetString(2);
+        appsCategory = rdr.GetString(3);
+        appsReleaseDate = rdr.GetString(4);
+      }
+      App foundApp = new App(appsName, appsDeveloper, appsCategory, appsReleaseDate, appsId);
+
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return foundApp;
+  }
 
     public void Save()
     {
